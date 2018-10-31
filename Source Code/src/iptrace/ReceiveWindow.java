@@ -81,4 +81,45 @@ public class ReceiveWindow implements ActionListener{
 		frame.add(panel);
 		frame.setVisible(true);
 	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == receive){
+			JOptionPane.showMessageDialog(null,"File received!");
+		}
+		if(e.getSource() == view){
+			if(attacked_flag == 1){
+				try{
+					file = new FileReader(filename2);
+					bfile = new BufferedReader(file);
+					String currentline;
+					while((currentline = bfile.readLine()) != null){
+						area.append("\n");
+						area.append(currentline);
+					}
+				}catch(IOException aae){
+						
+				}
+			JOptionPane.showMessageDialog(null, "Sent File does not match with the received File!\nSend reconstruction request from the main frame.");
+		}
+		else {
+			try {
+				file = new FileReader(filename);
+				bfile = new BufferedReader(file);
+				String currentline;
+				while((currentline = bfile.readLine()) != null){
+					area2.append("\n");
+					area2.append(currentline);
+				}
+			} catch (IOException aae) {
+			
+			}
+			try {
+				TimeUnit.SECONDS.sleep(5);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+			}
+			JOptionPane.showMessageDialog(null, "Sent File matches with the received File!");
+		}
+		}
+	}
 }
