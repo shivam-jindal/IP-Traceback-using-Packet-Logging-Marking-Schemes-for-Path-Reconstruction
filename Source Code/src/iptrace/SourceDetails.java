@@ -40,6 +40,27 @@ public class  SourceDetails{
 		ok.setBackground(Color.BLUE);
 		frame.add(ok);
 		image = new ImageIcon("/home/shivam/sem-7/psk-project/Source Code/IP-Traceback-using-Packet-Logging-Marking-Schemes-for-Path-Reconstruction/Source Code/src/iptrace/assets/folder.png");
+		file = new JButton(image);
+		file.setLocation(470,250);
+		file.setSize(30,30);
+		file.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent ae){
+			if(ae.getSource() == file){
+				JFileChooser fileChooser = new JFileChooser();
+				fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+				int result = fileChooser.showOpenDialog(file);
+				if (result == JFileChooser.APPROVE_OPTION) {
+				    File selectedFile = fileChooser.getSelectedFile();
+				    filename1 = selectedFile.getAbsolutePath();
+				    Construct.filename = filename1;
+				    browse.setText(selectedFile.getAbsolutePath());
+				}
+			}
+		}
+		});
+		frame.add(file);
+		frame.setVisible(true);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
 	
