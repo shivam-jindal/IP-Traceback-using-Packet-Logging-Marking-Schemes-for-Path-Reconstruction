@@ -23,7 +23,49 @@ public class Results {
 		}
 		for(int i = 0; i < routers; i++)
 			System.out.println(path[i]);
-		
+		frame = new JFrame("IP Traceback");
+		frame.setSize(new Dimension(1366, 768));
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		panel = new JPanel();
+		panel.setLayout(null);
+		rtable = new JLabel("Router Table");
+		rtable.setFont(new Font("Arial", Font.BOLD, 24));
+		rtable.setBounds(550, 20, 500, 80);
+		dtable = new JLabel("Digest Table");
+		dtable.setFont(new Font("Arial", Font.BOLD, 24));
+		dtable.setBounds(550, 320, 500, 80);
+		panel.add(rtable);
+		panel.add(dtable);
+		data1 = new Object[routers][4];
+		data2 = new Object[routers][3];
+		count1 = count2 = 0;
+		for(int i = routers - 1; i >= 0; i--) {
+			if(path[i] != -1) {
+				data1[count1][0] = "R" + Integer.toString(path[i] + 1);
+				data2[count2][0] = "R" + Integer.toString(path[i] + 1);
+				data2[count2][2] = "";
+				for(int j = 0; j < routers; j++) {
+					if(routingTable[path[i]][j] != 0) {
+						data2[count2][2] += Integer.toString(j + 1);
+						data2[count2][2] += ", ";
+					}
+				}
+				router = new JTable(data1, columns1);
+				digest = new JTable(data2, columns2);
+				sp1 = new JScrollPane(router);
+				sp1.setBounds(400, 100,500,200);
+				sp1.setBorder(BorderFactory.createLineBorder(Color.PINK, 25));
+				router.setFillsViewportHeight(true);
+				sp2 = new JScrollPane(digest);
+				sp2.setBounds(400, 400, 500, 200);
+				sp2.setBorder(BorderFactory.createLineBorder(Color.PINK, 25));
+				digest.setFillsViewportHeight(true);
+				panel.add(sp1);
+				panel.add(sp2);
+				count1++;
+				count2++;
+			}	
+		}
 		frame.add(panel);
 		frame.setVisible(true);	
 	}	
