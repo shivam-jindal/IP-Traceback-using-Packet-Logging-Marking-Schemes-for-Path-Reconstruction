@@ -43,6 +43,48 @@ public class Results {
 			if(path[i] != -1) {
 				data1[count1][0] = "R" + Integer.toString(path[i] + 1);
 				data2[count2][0] = "R" + Integer.toString(path[i] + 1);
+				if(count1 == 0) {
+					data1[count1][1] = "None";
+				}
+				else {
+					int port = 0;
+					for(int j = 0; j < routers; j++) {
+						if(routingTable[path[i]][j] != 0) {
+							port++;
+						}
+				
+					}
+					data1[count1][1] = port;
+				}
+				if(i == 0) {
+					data1[count1][2] = "None";
+					data1[count1][3] = "None";
+				}
+				else {
+					data1[count1][2] = path[i - 1] + 1;
+					int port = 0;
+					for(int j = 0; j < routers; j++) {
+						try {
+							if(routingTable[path[i - 1]][j] != 0) {
+								port++;
+							}
+						}catch(ArrayIndexOutOfBoundsException e) {
+							port++;
+						}
+					}
+					data1[count1][3] = port + 1;
+				}
+				if(count2 == 0) {
+					data2[count2][1] = "None";
+				}
+				else {
+					if(path[i] != Construct.attackedRouter) {
+						data2[count2][1] = path[i + 1] + 1;
+					}
+					else {
+						data2[count2][1] = Integer.toString(routers + 1);
+					}
+				}
 				data2[count2][2] = "";
 				for(int j = 0; j < routers; j++) {
 					if(routingTable[path[i]][j] != 0) {
