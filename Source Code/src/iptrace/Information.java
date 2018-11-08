@@ -58,27 +58,6 @@ public class Information extends JPanel implements ActionListener {
 		panel.add(show);
 		panel.add(path);
 		
-		title_label = new JLabel("Degree of routers");
-		title_label.setFont(new Font("Arial",Font.BOLD ,24));
-		title_label.setBounds(450,230,400,30);
-		
-		for(int i = no_routers-1; i>=0; i--) {
-			if(parent[i] != -1) {
-				str += "R";
-				str += Integer.toString(parent[i] + 1);
-				if(i != 0)
-					str += "-->";
-			}
-		}
-		jtf = new JTextField();
-		jtf.setText(str);
-		jsp = new JScrollPane(jtf);
-		jsp.setBounds(100,250,250,100);
-		
-		jsp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		panel.add(jsp);
-		//panel.add(jtf);
-		
 		
 		frame.add(panel);
 		frame.setVisible(true);
