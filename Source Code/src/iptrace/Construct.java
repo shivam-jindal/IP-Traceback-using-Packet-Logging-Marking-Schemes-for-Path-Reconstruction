@@ -144,7 +144,99 @@ public class Construct extends JPanel implements ActionListener,MouseListener,Mo
 		jpm = new JPopupMenu();
 		jmi = new JMenuItem("Add");
 		jpm.add(jmi);
+		for( int i = 0; i<routers;i++){
+			if(i == 0){
+				icon_button[0].addMouseListener(new MouseAdapter(){
+					public void mouseClicked(MouseEvent me) {
+						if(SwingUtilities.isRightMouseButton(me)){
+							jpm.show(icon_button[0], me.getX(),me.getY());
+						}
+					}
+				});
+			}
+			if(i == 1){
+				icon_button[1].addMouseListener(new MouseAdapter(){
+					public void mouseClicked(MouseEvent me) {
+						if(SwingUtilities.isRightMouseButton(me)){
+							jpm.show(icon_button[1], me.getX(),me.getY());
+						}
+					}
+				});
+			}
+			if(i == 2){
+				icon_button[2].addMouseListener(new MouseAdapter(){
+					public void mouseClicked(MouseEvent me) {
+						if(SwingUtilities.isRightMouseButton(me)){
+							jpm.show(icon_button[2], me.getX(),me.getY());
+						}
+					}
+				});
+			}
+			if(i == 3){
+				icon_button[3].addMouseListener(new MouseAdapter(){
+					public void mouseClicked(MouseEvent me) {
+						if(SwingUtilities.isRightMouseButton(me)){
+							jpm.show(icon_button[3], me.getX(),me.getY());
+						}
+					}
+				});
+			}
+			if(i == 4){
+				icon_button[4].addMouseListener(new MouseAdapter(){
+					public void mouseClicked(MouseEvent me) {
+						if(SwingUtilities.isRightMouseButton(me)){
+							jpm.show(icon_button[4], me.getX(),me.getY());
+						}
+					}
+				});
+			}
+			if(i == 5){
+				icon_button[5].addMouseListener(new MouseAdapter(){
+					public void mouseClicked(MouseEvent me) {
+						if(SwingUtilities.isRightMouseButton(me)){
+							jpm.show(icon_button[5], me.getX(),me.getY());
+						}
+					}
+				});
+			}
+			if(i == 6){
+				icon_button[6].addMouseListener(new MouseAdapter(){
+					public void mouseClicked(MouseEvent me) {
+						if(SwingUtilities.isRightMouseButton(me)){
+							jpm.show(icon_button[6], me.getX(),me.getY());
+						}
+					}
+				});
+			}
+			if(i == 7){
+				icon_button[7].addMouseListener(new MouseAdapter(){
+					public void mouseClicked(MouseEvent me) {
+						if(SwingUtilities.isRightMouseButton(me)){
+							jpm.show(icon_button[7], me.getX(),me.getY());
+						}
+					}
+				});
+			}
+			if(i == 8){
+				icon_button[8].addMouseListener(new MouseAdapter(){
+					public void mouseClicked(MouseEvent me) {
+						if(SwingUtilities.isRightMouseButton(me)){
+							jpm.show(icon_button[8], me.getX(),me.getY());
+						}
+					}
+				});
+			}
+			if(i == 9){
+				icon_button[9].addMouseListener(new MouseAdapter(){
+					public void mouseClicked(MouseEvent me) {
+						if(SwingUtilities.isRightMouseButton(me)){
+							jpm.show(icon_button[9], me.getX(),me.getY());
+						}
+					}
+				});
+			}
 		}
+	}
 	public class Paint extends JPanel{
 		Paint(Graphics g){
 			try {
